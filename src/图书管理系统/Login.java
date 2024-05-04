@@ -1,13 +1,14 @@
 package 图书管理系统;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class Login extends JFrame {
+public class Login extends JFrame implements ActionListener {
     private JLabel label1, label2;
     private JTextField area;
     private JPasswordField pass;
     private JButton button;
-    PoliceListen listener;
 
     public Login() {
         setTitle("用户登录");
@@ -46,12 +47,15 @@ public class Login extends JFrame {
         register.setBounds(220, 120, 100, 30);
         add(register);
         //登录按钮的监视器
-        listener = new PoliceListen(this);
-        button.addActionListener(listener);
-        //第一次修改在这儿
+        button.addActionListener(this);
     }
     public static void main(String[] args) {
         new Login();
     }
 
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        this.dispose();
+        new Menu();
+    }
 }
