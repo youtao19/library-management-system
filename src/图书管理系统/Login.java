@@ -48,6 +48,7 @@ public class Login extends JFrame {
         //登录按钮的监视器
         listener = new PoliceListen(this);
         button.addActionListener(listener);
+        //第一次修改在这儿
     }
     public static void main(String[] args) {
         new Login();
